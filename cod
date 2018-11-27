@@ -1,0 +1,53 @@
+#include <Servo.h>
+Servo orejaDer;
+Servo orejaIzq;
+Servo ojo1;
+Servo ojo2;
+Servo boca;
+Servo cola;
+
+//unsigned long time;
+
+int time = 0;
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  orejaDer.attach(8);
+  orejaIzq.attach(9);
+  ojo1.attach(10);
+  ojo2.attach(11);
+  cola.attach(12);
+
+
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+  time = millis();
+
+  if(millis() >= 0 && millis() < 2000 || millis() >= 6000 && millis() < 8000 || millis() >= 12000 && millis() < 14000 || millis() >= 19000 && millis() < 20000 || millis() >= 24000 && millis() < 26000 || millis() >= 30000 && millis() < 32000){ //feliz
+    ojo1.write(180);
+    ojo2.write(0);
+    orejaDer.write(0);
+    orejaIzq.write(175);
+    cola.write(140);
+    
+  }
+  if(millis() >= 2000 && millis() < 4000 || millis() >= 8000 && millis() < 10000 || millis() >= 14000 && millis() < 16000 || millis() >= 20000 && millis() < 22000 || millis() >= 26000 && millis() < 28000 || millis() >= 32000 && millis() < 34000 || millis() >= 36000 && millis() < 38000){ //antipatico
+    ojo1.write(12);
+    ojo2.write(150);
+    orejaDer.write(45);
+    orejaIzq.write(140);
+    cola.write(40);
+  }
+  if(millis() >= 4000 && millis() < 6000 || millis() >= 10000 && millis() < 12000 || millis() >= 16000 && millis() < 18000 || millis() >= 22000 && millis() < 24000 || millis() >= 28000 && millis() < 30000 || millis() >= 34000 && millis() < 36000){ //triste
+    ojo1.write(0);
+    ojo2.write(170);
+    orejaDer.write(90);
+    orejaIzq.write(90);
+    cola.write(180);
+  }
+  
+}
